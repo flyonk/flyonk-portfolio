@@ -10,15 +10,11 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
-  const publicPath = "/";
+  const publicPath = "/flyonk-portfolio/";
 
   const pcss = {
     test: /\.(p|post|)css$/,
-    use: [
-      isProductionBuild ? MiniCssExtractPlugin.loader : "vue-style-loader",
-      "css-loader",
-      "postcss-loader",
-    ],
+    use: [isProductionBuild ? MiniCssExtractPlugin.loader : "vue-style-loader", "css-loader", "postcss-loader"],
   };
 
   const vue = {
