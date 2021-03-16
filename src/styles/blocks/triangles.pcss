@@ -1,0 +1,27 @@
+.middle-section {
+  position: relative;
+}
+
+.triangles {
+  /* position: absolute; */
+  height: 100px;
+  bottom: 100%;
+  width: 100%;
+
+  &--pointed-down {
+    transform: rotate(180deg);
+  }
+
+  &--bottom {
+    bottom: none;
+    margin-bottom: -100px;
+    fill: white;
+    transform: rotate(180deg);
+  }
+}
+
+.triangles__shape {
+  width: 50%;
+  fill: #fff;
+  height: 100%;
+}
