@@ -39,6 +39,18 @@
   display: flex;
   align-items: center;
   background: inherit;
+
+  &:hover {
+    color: #8c4fe1;
+
+    .scroll-down-btn a {
+      fill: #8c4fe1;
+    }
+  }
+}
+
+.scroll-down-btn a:hover {
+  fill: #8c4fe1;
 }
 
 .hero__container {
@@ -52,6 +64,19 @@
 .hero__bottom-buttons {
   display: flex;
   justify-content: center;
+  width: 100px;
+  margin: 0 auto;
+
+  &:hover {
+    color: #8c4fe1;
+    fill: #8c4fe1;
+  }
+
+  &--link svg {
+    &:hover {
+      fill: #8c4fe1;
+    }
+  }
 }
 
 .scroll__image {

@@ -36,8 +36,14 @@
 }
 
 .thubms__item {
+  max-width: 178px;
+  max-height: 100px;
   display: flex;
   justify-content: flex-end;
+
+  &:hover {
+    border: 2px solid #ffcf55;
+  }
 }
 
 .works-preview__pictures {
@@ -50,7 +56,6 @@
 .tags {
   display: flex;
   width: 100%;
-  justify-content: space-around;
   margin-bottom: 45px;
 }
 
@@ -70,6 +75,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 20px;
 }
 
 .tag {
@@ -111,8 +117,22 @@
 }
 
 .square-btns__item {
+  outline: transparent;
+  color: #717883;
   width: 53px;
   height: 53px;
-  background: #252830;
+  background: #252830 !important;
   z-index: 1110;
+
+  &:hover {
+    border: 1px solid #717883;
+  }
+}
+
+.square-btns__item-top {
+  transform: rotate(-90deg);
+}
+
+.square-btns__item-down {
+  transform: rotate(90deg);
 }

@@ -16,7 +16,7 @@ block content
             - var socials = ["insta", "vk", "github", "envelope"]
             li.socials__item
               each item in socials
-                a(href="#").socials__link
+                a(href="#" target="_blank").socials__link
                   +icon(item, "socials__icon")
         .userinfo
           .userinfo__title Личный сайт веб разработчика
@@ -24,8 +24,8 @@ block content
         
         .hero__bottom-buttons
           button.scroll-down-btn Скролл
-          a(href="#").scroll__link
-            +icon("scroll", "scroll__image")
+            a(href="#").scroll__link.scroll-down-btn--link
+              +icon("scroll", "scroll__image")
     section.about
       .container.about__container
         .about__user
@@ -49,7 +49,11 @@ block content
           .about__title Щепетин Пётр
           .about__text-info
             p Я занимаюсь разработкой современный сайтов и приложений
-          .about__ps
+          .about__wrap
+            p *
+            .about__ps
+            | Этот сайт я сделал чисто по кайфу для себя любимого
+            | Этот сайт я сделал чисто по кайфу для себя любимого
             | Этот сайт я сделал чисто по кайфу для себя любимого
   .middle-section.middle-section__triangles-top
     .triangles.triangles--pointed-down
@@ -82,6 +86,8 @@ block content
                   .skills-row__title #{category[0]}
                   ul.skills-row__list
                     each skill in category[1]
+                      -
+                        var skillsExp = [20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280]
                       li.skills-row__item
                         .skill
                           svg(viewBox="0 0 100 100").skill__circle-shape
@@ -97,17 +103,19 @@ block content
         .works__content
           .works-preview
             .works-preview__pictures(data-slide="2")
-              +image("content/slider-1.png", "works-preview__image")
+              +image("content/slider-1.jpg", "works-preview__image")
               .works-preview__thumbs
                 ul.thumbs
                   - for (var i = 4; i > 0; i--)
                     li.thubms__item
                       a(href="").thumbs__link
-                        +image(`content/slider-${i}.png`, `slider-image-${i}`)
+                        +image(`content/slider-${i}.jpg`, `slider-image-${i}`)
               .works-preview__btns
                 .square-btns
-                  button(type="button").square-btns__item.square-btns__item--next lala
-                  button(type="button").square-btns__item.square-btns__item--prev lala
+                  button(type="button").square-btns__item
+                    p.square-btns__item-top &gt;
+                  button(type="button").square-btns__item
+                    p.square-btns__item-down &gt;
             .works-preview__info
               - var tags = ["HTML", "CSS", "JavaScript"]
               ul.tags
@@ -178,12 +186,12 @@ block content
                 a.menu-item__link(href="#") Работы
               li.footer-item__menu-item
                 a.menu-item__link(href="#") Отзывы
-            .footer-item__desc Этот сайт я сделал на чистом кокаине
+            .footer-item__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
             ul.footer-item__socials
               - var socials = ["insta", "vk", "github", "envelope"]
               li.socials__item
                 each item in socials
-                  a(href="#").socials__link
+                  a(href="#" target="_blank").socials__link.socials__link--footer
                     +icon(item, "socials__icon icon-gray")
           li.footer-item.footer-item--third
             .smart-qoute Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
