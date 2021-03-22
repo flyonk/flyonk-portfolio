@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "1 Сайт школы онлайн образования",
+    "skills": "HTML, CSS, JavaScript, Vue, PUG",
+    "photo": "slider-1.jpg",
+    "link": "//google.com",
+    "desc": "1 Этот парень просто супер, этот парень просто класс"
+  },
+  {
+    "id": 2,
+    "title": "1 Сайт школы онлайн образования666",
+    "skills": "NodeJS, Express, Meteor, WebSocket, Handlebars",
+    "photo": "slider-2.jpg",
+    "link": "//google.com",
+    "desc": "1 Этот парень просто супер, этот парень просто класс"
+  },
+  {
+    "id": 3,
+    "title": "1 Сайт школы онлайн образования777",
+    "skills": "Git, Terminal, Webpack, Gulp, WSL, ООП",
+    "photo": "slider-3.jpg",
+    "link": "//google.com",
+    "desc": "1 Этот парень просто супер, этот парень просто класс"
+  }
+]

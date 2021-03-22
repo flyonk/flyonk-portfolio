@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "category": "Frontend",
+    "skills": [
+      {
+        "id": 1,
+        "title": "HTML",
+        "percent": 25
+      },
+      {
+        "id": 2,
+        "title": "CSS",
+        "percent": 70
+      },
+      {
+        "id": 3,
+        "title": "JavaScript",
+        "percent": 75
+      },
+      {
+        "id": 4,
+        "title": "VUE",
+        "percent": 31
+      },
+      {
+        "id": 5,
+        "title": "PUG",
+        "percent": 22
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Backend",
+    "skills": [
+      {
+        "id": 1,
+        "title": "NodeJS",
+        "percent": 28
+      },
+      {
+        "id": 2,
+        "title": "Express",
+        "percent": 67
+      },
+      {
+        "id": 3,
+        "title": "Meteor",
+        "percent": 25
+      },
+      {
+        "id": 4,
+        "title": "WebSocket",
+        "percent": 25
+      },
+      {
+        "id": 5,
+        "title": "Handlebars",
+        "percent": 95
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Workflow",
+    "skills": [
+      {
+        "id": 1,
+        "title": "Git",
+        "percent": 90
+      },
+      {
+        "id": 2,
+        "title": "Terminal",
+        "percent": 90
+      },
+      {
+        "id": 3,
+        "title": "Webpack",
+        "percent": 55
+      },
+      {
+        "id": 4,
+        "title": "Gulp",
+        "percent": 58
+      },
+      {
+        "id": 5,
+        "title": "WSL",
+        "percent": 35
+      },
+      {
+        "id": 6,
+        "title": "ООП",
+        "percent": 78
+      }
+    ]
+  }
+]

@@ -71,58 +71,12 @@ block content
           .values__image-wrap
             +image("content/backpack.png", "user__avatar-pic")
           .values__widget
-            -
-              var 
-              skillsCategories = [
-                ["Frontend", [["HTML", 20], ["(S/P)CSS", 40], ["JavaScript", 40], ["Vue", 60], ["Pug", 40]]],
-                ["Backend", [["NodeJS", 80], ["Express", 80], ["Meteor", 80], ["WebSocket", 80], ["Handlebars", 80]]],
-                ["Workflow", [["GIT", 110], ["Terminal", 110], ["Webpack", 110], ["Gulp", 110], ["WSL", 110], ["ООП", 110]]],
-              ];
-            ul.skills
-              each category in skillsCategories
-                li.skills__item
-                .skills-row
-                  .skills-row__title #{category[0]}
-                  ul.skills-row__list
-                    each skill in category[1]
-                      li.skills-row__item
-                        .skill
-                          svg(viewBox="0 0 100 100").skill__circle-shape
-                            circle(cx="50" cy="50" r="40").skill__circle.skill__circle--layer--under
-                            circle(cx="50" cy="50" r="40" stroke="url(#gradient)" transform="rotate(180 50 50)").skill__circle.skill__circle--layer--above(style="stroke-dashoffset='#{skill[1]}'")
-                            linearGradient(id="gradient" x1="0%" y1="0%" x2="100%" y2="0%")
-                              stop(offset="0%" stop-color="#5500f2")
-                              stop(offset="100%" stop-color="#5500f2")
-                          .skill-title #{skill[0]}
+            #skills-component
     section.works
       .container
         .section-title Мои работы
         .works__content
-          .works-preview
-            .works-preview__pictures(data-slide="2")
-              +image("content/slider-1.jpg", "works-preview__image")
-              .works-preview__thumbs
-                ul.thumbs
-                  - for (var i = 4; i > 0; i--)
-                    li.thubms__item
-                      a(href="").thumbs__link
-                        +image(`content/slider-${i}.jpg`, `slider-image-${i}`)
-              .works-preview__btns
-                .square-btns
-                  button(type="button").square-btns__item
-                    p.square-btns__item-top &gt;
-                  button(type="button").square-btns__item
-                    p.square-btns__item-down &gt;
-            .works-preview__info
-              - var tags = ["HTML", "CSS", "JavaScript"]
-              ul.tags
-                each item in tags
-                  li.tags__item
-                    .tag #{item}
-              .works-preview__title Сайт школоло
-              .works-preview__desc 
-                p Этот парень просто бомба, <br> этот парень просто класс
-              a(href="#").iconed-link Посмотреть сайт
+          #preview-component 
     .triangles.triangles--bottom
       svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape--position--left
         polygon(points="0,0 0,100 1000,100")
