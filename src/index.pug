@@ -1,23 +1,43 @@
 extends ./main.layout.pug
 
 block content
-  .welcome-section
+  .welcome-section#welcome
     section.hero
+      .burger-popup
+        p.x-close-btn X
+        ul.burger-menu
+          li.burger-item
+            a(href="#welcome") Главная
+          li.burger-item 
+            a(href="#about") Обо мне
+          li.burger-item
+            a(href="#values") Навыки
+          li.burger-item
+            a(href="#works") Работа
+          li.burger-item
+            a(href="#reviews") Отзывы
+        ul.burger-icons
+        - var socials = ["insta", "vk", "github", "envelope"]
+            li.burger-social-item
+              each social in socials
+                a(href="#" target="_blank").socials__link
+                  +icon(social, "socials__icon")
       .container.hero__container
         header.header
           a.logo(href="#") ЩП
           nav.menu
-            - var menuItems = ["Обо мне", "Навыки", "Работы", "Отзывы"]
+            - var menuItems = [["Обо мне", "#about"], ["Навыки", "#values"], ["Работы","#works"], ["Отзывы", "#reviews"]]
             ul.menu__list
               each item in menuItems
                 li.menu__item
-                  a(href="#").menu__link #{item}
+                  a(href="#").menu__link #{item[0]}
           ul.socials
             - var socials = ["insta", "vk", "github", "envelope"]
             li.socials__item
               each item in socials
                 a(href="#" target="_blank").socials__link
                   +icon(item, "socials__icon")
+            #burger-place
         .userinfo
           .userinfo__title Личный сайт веб разработчика
           .userinfo__name Щепетин Пётр
@@ -26,7 +46,7 @@ block content
           button.scroll-down-btn Скролл
             a(href="#").scroll__link.scroll-down-btn--link
               +icon("scroll", "scroll__image")
-    section.about
+    section.about#about
       .container.about__container
         .about__user
           .user
@@ -48,41 +68,37 @@ block content
           .about__desc Привет, меня зовут
           .about__title Щепетин Пётр
           .about__text-info
-            p Я занимаюсь разработкой современный сайтов и приложений
+            p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
           .about__wrap
             p *
-            .about__ps
-            | Этот сайт я сделал чисто по кайфу для себя любимого
-            | Этот сайт я сделал чисто по кайфу для себя любимого
-            | Этот сайт я сделал чисто по кайфу для себя любимого
+            .about__ps Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
   .middle-section.middle-section__triangles-top
     .triangles.triangles--pointed-down
       svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape--top
         polygon(points="0,0 0,100 1000,100")
       svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape--top
         polygon(points="0,100 1000,100 1000,0")
-    section.values
+    section.values#values
       .container
         .values__title
           .values__title-text Чем я могу быть полезен Вам
           .values__content
-            p Этот сайт я сделал, что бы мама мной гордилась
+            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
         .values__main-content
           .values__image-wrap
             +image("content/backpack.png", "user__avatar-pic")
           .values__widget
             #skills-component
-    section.works
+        .values__image-wrap-second
+          +image("content/backpack.png", "user__avatar-pic")
+    section.works#works
       .container
         .section-title Мои работы
         .works__content
           #preview-component 
-    .triangles.triangles--bottom
-      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape--position--left
-        polygon(points="0,0 0,100 1000,100")
-      svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles__shape.triangles__shape--position--right
-        polygon(points="0,100 1000,100 1000,0")
-    section.reviews
+    svg(viewBox="0 0 1000 100" preserveAspectRatio="none" fill="#fff").bottom-triangle
+      polygon(points="0,0 500,100 1000,00")
+    section.reviews#reviews
       .container
         .slider
           .slider-header
@@ -94,7 +110,8 @@ block content
             li.slider__item
               .quote
                 .quote__text
-                  p Этот парень делает вещи
+                  +icon("quote", "quote__icon")
+                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
                 .quote__user
                   .user-display
                     .user-display__avatar
@@ -106,7 +123,8 @@ block content
             li.slider__item
               .quote
                 .quote__text
-                  p Этот парень делает вещи
+                  +icon("quote", "quote__icon")
+                  p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
                 .quote__user
                   .user-display
                     .user-display__avatar
@@ -128,24 +146,25 @@ block content
               .about__name Щепетин <br> Пётр 
               .about__job Личный сайт<br> веб разработчика
           li.footer-item.footer-item--second
-            ul.footer-item__menu
-              li.footer-item__menu-item
-                a.menu-item__link(href="#") Обо мне
-              li.footer-item__menu-item
-                a.menu-item__link(href="#") Навыки
-              li.footer-item__menu-item
-                a.menu-item__link(href="#") Работы
-              li.footer-item__menu-item
-                a.menu-item__link(href="#") Отзывы
-            .footer-item__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
-            ul.footer-item__socials
-              - var socials = ["insta", "vk", "github", "envelope"]
-              li.socials__item
-                each item in socials
-                  a(href="#" target="_blank").socials__link.socials__link--footer
-                    +icon(item, "socials__icon icon-gray")
-          li.footer-item.footer-item--third
-            .smart-qoute Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
-            .quote-author Martin Golding
+            .footer-second-left
+              ul.footer-item__menu
+                li.footer-item__menu-item
+                  a.menu-item__link(href="#") Обо мне
+                li.footer-item__menu-item
+                  a.menu-item__link(href="#") Навыки
+                li.footer-item__menu-item
+                  a.menu-item__link(href="#") Работы
+                li.footer-item__menu-item
+                  a.menu-item__link(href="#") Отзывы
+              .footer-item__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+              ul.footer-item__socials
+                - var socials = ["insta", "vk", "github", "envelope"]
+                li.socials__item
+                  each item in socials
+                    a(href="#" target="_blank").socials__link.socials__link--footer
+                      +icon(item, "socials__icon icon-gray")
+            .footer-second-right
+              .smart-qoute Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+              .quote-author Martin Golding
 
   //- .block(style="background: black; height: 1000px")

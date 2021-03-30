@@ -1,7 +1,47 @@
 .skill {
   position: relative;
-  width: 111px;
-  height: 111px;
+  width: 132.5px;
+  height: 132.5px;
+
+  @include tablets {
+    width: 115px;
+    height: 115px;
+  }
+
+  /* @include phones {
+    width: 95px;
+    height: 95px;
+  } */
+}
+
+.values__widget {
+  @include desktop {
+    margin: 0 auto;
+    margin-bottom: 120px;
+  }
+
+  @include tablets {
+    max-width: 100%;
+  }
+}
+
+.values__image-wrap-second {
+  display: none;
+
+  @include desktop {
+    display: block;
+    margin: 0 auto;
+    width: 278px;
+    height: 245px;
+    object-fit: contain;
+    margin-bottom: 89px;
+  }
+}
+
+.values__image-wrap {
+  @include desktop {
+    display: none;
+  }
 }
 
 .skill__circle {
@@ -37,6 +77,11 @@
 .skills-row__list {
   display: flex;
   margin-bottom: 22px;
+
+  @include desktop {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 .skills-row__title {
@@ -44,10 +89,14 @@
   margin-bottom: 25px;
   font-size: 24px;
   line-height: 33px;
+
+  @include desktop {
+    text-align: center;
+  }
 }
 
 .values {
-  padding-top: 25px;
+  padding-top: 145px;
 }
 
 .values__title-text {
@@ -64,6 +113,17 @@
   font-size: 16px;
   line-height: 30px;
   margin-bottom: 30px;
+}
+
+.values__content {
+  margin: 0 auto;
+  max-width: 600px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+  color: rgba(70, 78, 98, 0.8);
 }
 
 .values__main-content {

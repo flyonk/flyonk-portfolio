@@ -1,10 +1,18 @@
 .menu__list {
   display: flex;
   justify-content: center;
+
+  @include tablets {
+    display: none;
+  }
 }
 
 .menu__item {
   margin-right: 60px;
+
+  @include desktop {
+    margin-right: 40px;
+  }
 }
 
 .socials__item {
@@ -25,8 +33,25 @@
   line-height: 22px;
   display: flex;
   align-items: center;
+  color: white;
+  white-space: nowrap;
 
   &:hover {
     color: #ff9a00;
+  }
+
+  @include phones {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+  }
+}
+
+.burger-menu__img {
+  display: none;
+
+  @include tablets {
+    display: block;
+    margin-left: 10px;
   }
 }

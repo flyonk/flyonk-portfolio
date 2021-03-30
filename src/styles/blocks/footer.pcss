@@ -2,6 +2,14 @@
   height: 370px;
   width: 100%;
   background: #252830;
+
+  @include desktop {
+    height: 500px;
+  }
+
+  @include mini-tablets {
+    height: 740px;
+  }
 }
 
 .footer-container {
@@ -11,28 +19,79 @@
 .footer-list {
   display: flex;
   height: 100%;
-  padding-top: 90px;
+  padding: 90px 0 75px 0;
+
+  @include tablets {
+    padding-top: 50px;
+  }
+
+  @include mini-tablets {
+    display: block;
+  }
 }
 
 .footer-item {
+  min-height: 100%;
   text-align: center;
   &--first {
     display: flex;
     width: 561px;
+
+    @include desktop {
+      display: block;
+    }
+
+    @include mini-tablets {
+      margin-bottom: 40px;
+      min-height: 0%;
+    }
   }
 
   &--second {
     height: 190px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 120px;
+    margin-right: 100px;
+
+    @include desktop-middle {
+      margin-left: 35px;
+      margin-right: 45px;
+    }
+
+    @include desktop {
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @include mini-tablets {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .footer-item__menu-item {
+    @include phones {
+      width: 200px;
+      margin-bottom: 25px;
+    }
+  }
+
+  &--third {
+    @include tablets {
+      display: none;
+    }
   }
 }
 
+.footer-second-left {
+  margin-right: 75px;
+}
+
 .footer__copyright {
-  padding-top: 30px;
+  @include tablets {
+    padding-top: 0;
+    margin-right: 0;
+  }
 }
 
 .footer__copyright-year {
@@ -48,13 +107,16 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 30px;
-  display: flex;
-  align-items: center;
+  color: white !important;
   text-transform: uppercase;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
   margin-bottom: 10px;
+
+  @include tablets {
+    text-align: left;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
 }
 
 . {
@@ -73,6 +135,14 @@
 .footer-item__about {
   margin-left: 50px;
   width: 160px;
+
+  @include tablets {
+    margin-left: 0;
+  }
+}
+
+.footer-item__about * {
+  text-align: left;
 }
 
 .footer-item__desc {
@@ -82,6 +152,19 @@
   line-height: 30px;
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
+
+  @include tablets {
+    margin-bottom: 20px;
+  }
+}
+
+.footer-item__socials {
+  justify-content: flex-start;
+
+  @include tablets {
+    margin-bottom: 20px;
+  }
 }
 
 .icon-gray {
@@ -91,22 +174,32 @@
 .about__job {
   font-size: 16px;
   line-height: 30px;
-  display: flex;
-  align-items: center;
   color: #464e62;
-  display: flex;
-  justify-content: center;
+
+  @include tablets {
+    text-align: left;
+    display: block;
+  }
 }
 
 .footer-item__menu {
   width: 430px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 40px;
+
+  @include tablets {
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  @include phones {
+    margin-bottom: 0;
+  }
 }
 
-.socials__item {
+.footer-item__socials .socials__item {
   display: flex;
-  justify-content: space-around;
 }
 
 .smart-qoute {
@@ -126,4 +219,11 @@
   display: flex;
   align-items: center;
   color: #ffffff;
+  font-style: italic;
+}
+
+.footer-second-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }

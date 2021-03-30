@@ -1,0 +1,31 @@
+.list {
+  display: flex;
+}
+
+.link {
+  padding: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  text-decoration: none;
+
+  &:hover {
+    color: #383bcf;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #383bcf;
+    }
+  }
+}
+
+.item.active {
+  color: #a816e1;
+}

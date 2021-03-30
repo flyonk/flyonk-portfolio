@@ -8,33 +8,76 @@
 
 .slider__content {
   display: flex;
-  padding-left: 20%;
   margin-top: 75px;
+  overflow: hidden;
+
+  @include tablets {
+    padding-left: 0;
+  }
 }
 
 .slider__item {
   margin-left: 100px;
+  width: 444px;
 
   &:first-child {
     margin-left: 0;
+  }
+
+  @include mini-tablets {
+    min-width: 100%;
   }
 }
 
 .slider-header {
   display: flex;
-  justify-content: space-between;
   max-width: 920px;
+
+  @include mini-tablets {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .slider-buttons {
+  @include mini-tablets {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.quote {
+  height: 100%;
+}
+
+.quote__text {
+  display: flex;
+
+  @include mini-tablets {
+    height: 125px;
+  }
+
+  @include phones {
+    height: 180px;
+  }
 }
 
 .quote__text p {
+  margin-left: 20px;
+  height: 110px;
   font-weight: 600;
   font-size: 16px;
   line-height: 30px;
-  margin-bottom: 25px;
-  text-align: center;
+  margin-bottom: 35px;
+
+  @include desktop {
+    font-size: 14px;
+  }
+
+  @include tablets {
+    font-size: 13px;
+    height: 190px;
+  }
 }
 
 .round-btn {
@@ -51,6 +94,7 @@
 }
 
 .user-display__pic {
+  min-width: 75px;
   width: 75px;
   border-radius: 50%;
 }
@@ -75,4 +119,12 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
+}
+
+.quote__icon {
+  min-width: 75px;
+  min-height: 57px;
+  width: 75px;
+  height: 57px;
+  fill: #dde3ec;
 }

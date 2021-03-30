@@ -4,14 +4,32 @@
   }
 }
 
+@mixin desktop-middle() {
+  @media screen and (max-width: $bp-desktop-middle) {
+    @content;
+  }
+}
+
 @mixin desktop() {
   @media screen and (max-width: $bp-desktop) {
     @content;
   }
 }
 
+@mixin mini-tablets() {
+  @media screen and (max-width: $bp-mini-tablets) {
+    @content;
+  }
+}
+
 @mixin tablets() {
   @media screen and (max-width: $bp-tablets) {
+    @content;
+  }
+}
+
+@mixin ipads() {
+  @media screen and (max-width: $bp-ipads) {
     @content;
   }
 }

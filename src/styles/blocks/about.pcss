@@ -1,20 +1,29 @@
 .user__avatar {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 78px;
 }
 
 .about {
-  margin-top: 100px;
+  margin-top: 200px;
 }
 
 .about__container {
   display: flex;
+
+  @include phones {
+    display: block;
+  }
 }
 
 .about__user {
   width: 50%;
   height: 380px;
+
+  @include phones {
+    margin: 0 auto;
+    width: 80%;
+  }
 }
 
 .user {
@@ -23,6 +32,12 @@
 
 .about__content {
   width: 50%;
+  padding-top: 5px;
+
+  @include phones {
+    padding-top: 0;
+    width: 80%;
+  }
 }
 
 .user__avatar-style {
@@ -34,9 +49,21 @@
 }
 
 .user__data {
-  width: 100%;
+  width: 75%;
   margin: 0 auto;
-  padding-left: 170px;
+  padding-left: 120px;
+
+  @include desktop {
+    padding-left: 85px;
+  }
+
+  @include tablets {
+    padding-left: 10px;
+  }
+
+  @include phones {
+    padding-left: 0;
+  }
 }
 
 .user__data-row {
@@ -44,6 +71,8 @@
 }
 
 .user__data-title {
+  color: #464e62;
+  opacity: 0.5;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -57,10 +86,11 @@
   line-height: 22px;
   display: flex;
   align-items: center;
-}
 
-.about__content {
-  padding-top: 35px;
+  @include phones {
+    display: block;
+    text-align: right;
+  }
 }
 
 .about__content * {
@@ -84,6 +114,10 @@
   line-height: 49px;
   align-text: center;
   margin-bottom: 40px;
+
+  @include phones {
+    margin-bottom: 25px;
+  }
 }
 
 .about__text-info {
@@ -96,11 +130,25 @@
   margin-bottom: 60px;
 }
 
+.about__text-info p {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: rgba(70, 78, 98, 0.8);
+}
+
 .about__wrap {
   display: flex;
+  position: relative;
 }
 
 .about__wrap p {
+  position: absolute;
+  left: -50px;
   font-style: italic;
   font-weight: normal;
   font-size: 48px;

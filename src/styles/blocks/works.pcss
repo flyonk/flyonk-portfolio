@@ -1,9 +1,22 @@
 .works {
+  margin-top: 250px;
   padding-bottom: 120px;
+
+  @include desktop {
+    margin-top: 150px;
+  }
 }
 
 .works-preview {
   display: flex;
+
+  @include tablets {
+    display: block;
+  }
+
+  @include tablets {
+    display: block;
+  }
 }
 
 .section-title {
@@ -11,6 +24,28 @@
   font-size: 36px;
   line-height: 49px;
   margin-bottom: 83px;
+
+  @include phones {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 32px;
+  }
+}
+
+.slider-header .section-title {
+  margin-bottom: 0;
+  margin-right: 115px;
+
+  @include mini-tablets {
+    text-align: center;
+    margin-bottom: 35px;
+    margin-right: 0;
+    font-size: 32px;
+  }
+
+  @include phones {
+    font-size: 26px;
+  }
 }
 
 .works-preview__pictures {
@@ -18,6 +53,10 @@
   width: 975px;
   height: 549px;
   object-fit: cover;
+
+  @include tablets {
+    max-width: 100%;
+  }
 
   &:before {
     content: attr(data-slide);
@@ -37,6 +76,10 @@
   z-index: -20;
   width: 975px;
   height: 549px;
+
+  @include phones {
+    object-fit: cover;
+  }
 }
 
 .thubms__item {
@@ -61,6 +104,14 @@
   display: flex;
   width: 100%;
   margin-bottom: 45px;
+
+  @include tablets {
+    justify-content: center;
+  }
+}
+
+.works-preview__info p {
+  margin-bottom: 30px;
 }
 
 .works-preview__info {
@@ -68,13 +119,23 @@
   flex-direction: column;
   align-items: center;
   width: 400px;
-  padding-top: 30px;
+  padding-top: 70px;
+
+  @include tablets {
+    width: 100%;
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  @include phones {
+    padding-top: 60px;
+  }
 }
 
 .tags__item {
   background: #f3f6f9;
   border-radius: 50px;
-  width: 86px;
+  min-width: 86px;
   height: 48px;
   display: flex;
   justify-content: center;
@@ -95,6 +156,10 @@
   font-size: 30px;
   line-height: 41px;
   margin-bottom: 60px;
+
+  @include tablets {
+    margin-bottom: 25px;
+  }
 }
 
 .works-preview__desc {
@@ -111,7 +176,6 @@
 }
 
 .iconed-link {
-  margin-top: 30px;
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
@@ -159,4 +223,14 @@
 
 .active {
   border: 2px solid #ffcf55;
+}
+
+.works__look-site-wrap {
+  display: flex;
+}
+
+.iconed-link-img {
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
 }

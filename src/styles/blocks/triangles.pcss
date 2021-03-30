@@ -15,10 +15,7 @@
   }
 
   &--bottom {
-    bottom: none;
     margin-bottom: -100px;
-    fill: white;
-    transform: rotate(180deg);
   }
 }
 
@@ -27,6 +24,20 @@
   fill: #fff;
   height: 100%;
 
+  &--position--left {
+    width: 100%;
+  }
+
   &--top {
+  }
+}
+
+.bottom-triangle {
+  margin-bottom: -125px;
+  height: 120px;
+  width: 100%;
+
+  @include ipads {
+    margin-bottom: -120px;
   }
 }

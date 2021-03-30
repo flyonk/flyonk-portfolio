@@ -3,3 +3,21 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.header .socials .socials__item .socials__link {
+  margin-right: 35px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include desktop {
+    margin-right: 20px;
+  }
+}
+
+nav.menu {
+  @include tablets {
+    display: none;
+  }
+}
