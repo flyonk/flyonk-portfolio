@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "category": "Frontend",
+    "skills": [
+      { "id": 0, "title": "HTML", "percent": 80 },
+      { "id": 1, "title": "CSS", "percent": 40 },
+      { "id": 2, "title": "JavaScript", "percent": 70 }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Backend",
+    "skills": [
+      { "id": 0, "title": "NodeJS", "percent": 80 },
+      { "id": 1, "title": "Express", "percent": 44 },
+      { "id": 2, "title": "WebSocket", "percent": 70 }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Workflow",
+    "skills": [
+      { "id": 0, "title": "Git", "percent": 40 },
+      { "id": 1, "title": "Terminal", "percent": 10 },
+      { "id": 2, "title": "Webpack", "percent": 31 }
+    ]
+  }
+]

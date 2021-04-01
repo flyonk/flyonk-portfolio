@@ -100,39 +100,7 @@ block content
       polygon(points="0,0 500,100 1000,00")
     section.reviews#reviews
       .container
-        .slider
-          .slider-header
-            .section-title Что обо мне говорят
-            .slider-buttons
-              button(type="button").round-btn.round-btn--pointer--right &lt;
-              button(type="button").round-btn.round-btn--pointer--left &gt;
-          ul.slider__content
-            li.slider__item
-              .quote
-                .quote__text
-                  +icon("quote", "quote__icon")
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                .quote__user
-                  .user-display
-                    .user-display__avatar
-                      .user-display__avatar-style
-                        +image("content/user.jpg", "user-display__pic")
-                    .user-display__data
-                      .user-display__name Дмитрий Ковальчук
-                      .user-display__occ Основатель Loftschool
-            li.slider__item
-              .quote
-                .quote__text
-                  +icon("quote", "quote__icon")
-                  p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                .quote__user
-                  .user-display
-                    .user-display__avatar
-                      .user-display__avatar-style
-                        +image("content/user.jpg", "user-display__pic")
-                    .user-display__data
-                      .user-display__name Дмитрий Ковальчук
-                      .user-display__occ Основатель Loftschool
+        #slider-component
 
     section.footer
       .container.footer-container
