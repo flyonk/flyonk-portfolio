@@ -3,7 +3,7 @@ const signale = require("signale");
 const promptly = require("promptly");
 const config = require("./env.paths.json");
 
-const generateUsername = name => {
+const generateUsername = (name) => {
   const date = new Date();
   return `${name}-0${date.getMonth()}${date.getFullYear()}`;
 };
@@ -15,33 +15,28 @@ const registerUser = (name, password) => {
       url: config.REG_URL,
       form: {
         name,
-        password
-      }
+        password,
+      },
     },
     (err, response, body) => {
       if (err) signale.fatal(err);
-      
-      console.log(response.statusCode);
-      
+
+      console.log("response.statusCode: ", response.statusCode);
 
       switch (response.statusCode) {
         case 302:
           const newUserName = generateUsername(name);
-          signale.error(
-            `Такой пользователь уже существует. Попробуйте имя: ${newUserName}`
-          );
+          signale.error(`Такой пользователь уже существует. Попробуйте имя: ${newUserName}`);
           break;
         case 200:
-          signale.success(
-            `Регистрация прошла успешно для пользователя: ${name}`
-          );
+          signale.success(`Регистрация прошла успешно для пользователя: ${name}`);
           break;
       }
     }
   );
 };
 
-const validator = value => {
+const validator = (value) => {
   if (value.length <= 3) {
     signale.error("В поле должно быть больше 3-ёх символов");
     throw new Error();
@@ -53,11 +48,11 @@ const validator = value => {
 async function askForPasswords() {
   const password = await promptly.password("Введите пароль: ", {
     replace: "*",
-    validator
+    validator,
   });
   const repeatPassword = await promptly.password("Повторите пароль: ", {
     replace: "*",
-    validator
+    validator,
   });
 
   if (password === repeatPassword) {
@@ -70,7 +65,7 @@ async function askForPasswords() {
 
 async function main() {
   const name = await promptly.prompt("Введите имя пользователя: ", {
-    validator
+    validator,
   });
   const password = await askForPasswords();
 

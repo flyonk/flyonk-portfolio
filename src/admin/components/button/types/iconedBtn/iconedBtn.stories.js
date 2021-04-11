@@ -25,7 +25,7 @@ defaultView.story = {
 export const noTitleView = () => ({
   components: { iconedBtn },
   template: `
-    <iconed-btn type="iconed-notitle" @click="onClick" />
+    <iconed-btn type="iconed-notitle" @click="onClick" title="" />
   `,
   methods,
 });

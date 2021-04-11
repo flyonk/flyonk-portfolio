@@ -52,10 +52,14 @@ export default {
   },
   methods: {
     onApprove() {
-      if (this.title.trim() === this.value.trim()) {
-        this.editmode = false;
-      } else {
+      // if (this.title.trim() === this.value.trim()) {
+      //   this.editmode = false;
+      // } else {
+      //   this.$emit("approve", this.value);
+      // }
+      if (this.value.trim() !== "") {
         this.$emit("approve", this.value);
+        this.editmode = false;
       }
     },
   },

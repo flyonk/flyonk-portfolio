@@ -7,6 +7,5 @@ export default {
 
 export const defaultView = () => ({
   components: { navigation },
-  template: `<navigation>
-  </navigation>`,
+  template: `<navigation/>`,
 });

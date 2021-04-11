@@ -31,5 +31,6 @@ export default {
 
 .username {
   margin-left: 10px;
+  white-space: nowrap;
 }
 </style>
