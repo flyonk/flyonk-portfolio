@@ -1,26 +1,67 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "./store";
+import axios from 'axios'
 import SimpleVueValidator from "simple-vue-validator";
 
 Vue.use(VueRouter);
 Vue.use(SimpleVueValidator, { mode: "manual" });
 
-import header from "./components/header";
-import about from "./pages/about";
-import login from "./pages/login";
+// import header from "./components/header";
+// import about from "./pages/about";
+// import login from "./pages/login";
 
 const routes = [
   {
     path: "/",
     components: {
-      default: about,
-      header: header,
+      default: () => import("./pages/about"),
+      header: () => import("./components/header"),
+    },
+  },
+  {
+    path: "/works",
+    components: {
+      default: () => import("./pages/works"),
+      header: () => import("./components/header"),
     },
   },
   {
     path: "/login",
-    component: login,
+    component: () => import("./pages/login"),
+    meta: {
+      public: true,
+    },
   },
 ];
+
+const guard = axios.create({
+  baseURL: "https://webdev-api.loftschool.com/",
+});
+
+router.beforeEach(async (to, from, next) => {
+  const isPublicRoute = to.matched.some((route) => route.meta.public);
+  const isUserLoggedIn = store.getters["user/userIsLoggedIn"];
+
+  // next();
+  // return;
+
+  if (isPublicRoute === false && isUserLoggedIn === false) {
+    const token = localStorage.getItem("token");
+
+    guard.defaults.headers["Authorization"] = `Bearer ${token}`;
+
+    try {
+      const response = await guard.get("/user");
+      store.dispatch("user/login", await response.data.user);
+      next();
+    } catch (error) {
+      router.replace("/login");
+      localStorage.removeItem("token");
+    }
+  } else {
+    next();
+  }
+});
 
 export default new VueRouter({ routes });

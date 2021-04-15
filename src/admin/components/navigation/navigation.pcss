@@ -9,6 +9,21 @@
   display: block;
   text-decoration: none;
 
+  &.active {
+    color: #383bcf;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #383bcf;
+    }
+  }
+
   &:hover {
     color: #383bcf;
     position: relative;
@@ -23,8 +38,4 @@
       background: #383bcf;
     }
   }
-}
-
-.item.active {
-  color: #a816e1;
 }

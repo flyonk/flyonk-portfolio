@@ -3,8 +3,8 @@ import { action } from "@storybook/addon-actions";
 
 const methods = {
   onClick: action("onClick"),
-  onChange: action("onChange")
-}
+  onChange: action("onChange"),
+};
 
 export default {
   title: "button/default",
@@ -16,20 +16,19 @@ export const defaultView = () => ({
   template: `
     <appButton title="Send!" @click="onClick" />
   `,
-  methods
+  methods,
 });
 
 defaultView.story = {
   name: "Стандартный вид",
 };
 
-
 export const plainView = () => ({
   components: { appButton },
   template: `
     <appButton plain @click="onClick" />
   `,
-  methods
+  methods,
 });
 
 plainView.story = {
@@ -47,17 +46,14 @@ disabledView.story = {
   name: "Заблокированный",
 };
 
-
 export const fileView = () => ({
   components: { appButton },
   template: `
     <appButton typeAttr="file" @change="onChange" />
   `,
-  methods
+  methods,
 });
 
 fileView.story = {
   name: "Тип - файл",
 };
-
-

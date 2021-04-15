@@ -11,6 +11,9 @@ export default {
       state.data = categories;
     },
     ADD_CATEGORY: (state, category) => state.data.unshift(category),
+    UPDATE_CATEGORY: (state, category) => {
+      console.log("UPDATE_CATEGORY", state, category);
+    },
     REMOVE_CATEGORY: (state, id) => {
       if (id) {
         state.data = state.data.filter((category) => category.id !== id);
@@ -36,6 +39,7 @@ export default {
     EDIT_SKILL: (state, skillToEdit) => {
       const editSkillOnCategory = (category) => {
         category.skills = category.skills.map((skill) => {
+          console.log("EDIT_SKILL: ", skill.skillToEdit.id);
           return skill.id === skill.skillToEdit.id ? skillToEdit : skill;
         });
       };
@@ -54,13 +58,14 @@ export default {
       try {
         const { data } = await this.$axios.post("/categories", { title });
         commit("ADD_CATEGORY", data);
+        console.log("title and data", title, data);
       } catch (error) {
         console.log(error);
       }
     },
     async update({ commit }, payload) {
       try {
-        const { data } = await this.$axios.put(`/categories/${payload.id}`, {
+        const { data } = await this.$axios.post(`/categories/${payload.id}`, {
           title: payload.category,
         });
         commit("UPDATE_CATEGORY", data);
@@ -79,13 +84,14 @@ export default {
     addEmpty({ commit }) {
       commit("ADD_CATEGORY", { category: "" });
     },
-    async remove({ commit }, categoryId) {
-      if (!categoryId) {
+    async remove({ commit }, category) {
+      console.log("remove", category, category.id);
+      if (!category.id) {
         return commit("REMOVE_CATEGORY");
       }
       try {
-        await this.$axios.delete(`/categories/${categoryId}`);
-        commit("REMOVE_CATEGORY", categoryId);
+        await this.$axios.delete(`/categories/${category.id}`);
+        commit("REMOVE_CATEGORY", category.id);
       } catch (error) {
         throw new Error("ошибка: ");
       }

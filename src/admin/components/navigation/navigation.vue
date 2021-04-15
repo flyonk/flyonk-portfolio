@@ -2,9 +2,11 @@
   <nav class="navigation-component">
     <div class="container">
       <ul class="list">
-        <div v-for="link in links" :key="link.id" :class="['item', { active: link.active }]">
-          <a :href="`/${link.alias}`" class="link">{{ link.title }}</a>
-        </div>
+        <li v-for="link in links" class="item" :key="link.id">
+          <router-link active-class="active" exact :to="`/${link.alias}`" class="link">
+            {{ link.title }}
+          </router-link>
+        </li>
       </ul>
     </div>
   </nav>
@@ -12,8 +14,8 @@
 
 <script>
 const links = [
-  { id: 0, title: "Обо мне", alias: "about", active: false },
-  { id: 1, title: "Работы", alias: "works", active: true },
+  { id: 0, title: "Обо мне", alias: "", active: true },
+  { id: 1, title: "Работы", alias: "works", active: false },
   { id: 2, title: "Отзывы", alias: "reviews", active: false },
 ];
 
@@ -23,6 +25,7 @@ export default {
       links,
     };
   },
+  methods() {},
 };
 </script>
 

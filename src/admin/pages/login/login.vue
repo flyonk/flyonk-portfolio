@@ -2,8 +2,9 @@
   <div class="login-page-component">
     <div class="login-content">
       <form class="form" @submit="handleSubmit">
-        <div class="form-title">Авторизация</div>
-        <div class="row">
+        <p class="close-login" @click="closeModal">X</p>
+        <h3 class="form-title">Авторизация</h3>
+        <div class="row row--login">
           <app-input
             title="Логин"
             icon="user"
@@ -61,6 +62,7 @@ export default {
   methods: {
     ...mapActions({
       showTooltip: "tooltips/show",
+      login: "user/login"
     }),
     async handleSubmit() {
       if ((await this.$validate()) === false) return;
@@ -73,6 +75,10 @@ export default {
         const token = response.data.token;
         localStorage.setItem("token", token);
         $axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+
+        const response = await $axios.get("/user")
+        this.login(user.response.data.user)
+
         this.$router.replace("/");
       } catch (error) {
         this.showTooltip({
@@ -83,6 +89,10 @@ export default {
       } finally {
         this.isSubmitDisabled = false;
       }
+    },
+    closeModal() {
+      document.querySelector(".login-content").style.display = "none";
+      document.querySelector(".login-page-component").style.background = "transparent";
     },
   },
 };

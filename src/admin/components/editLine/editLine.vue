@@ -11,7 +11,7 @@
         <app-input
           placeholder="Название новой группы"
           :value="value"
-          :errorText="errorText"
+          :errorMessage="errorMessage"
           @input="$emit('input', $event)"
           @keydown.native.enter="onApprove"
           autofocus="autofocus"
@@ -37,7 +37,7 @@ export default {
       type: String,
       default: "",
     },
-    errorText: {
+    errorMessage: {
       type: String,
       default: "",
     },
@@ -52,13 +52,8 @@ export default {
   },
   methods: {
     onApprove() {
-      // if (this.title.trim() === this.value.trim()) {
-      //   this.editmode = false;
-      // } else {
-      //   this.$emit("approve", this.value);
-      // }
-      if (this.value.trim() !== "") {
-        this.$emit("approve", this.value);
+      this.$emit("approve", this.value);
+      if (this.value) {
         this.editmode = false;
       }
     },

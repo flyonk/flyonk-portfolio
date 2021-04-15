@@ -29,8 +29,11 @@
 import button from "../../components/button";
 import category from "../../components/category";
 import { mapActions, mapState } from "vuex";
+import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 
 export default {
+  mixins: [ValidatorMixin],
+  validators: {},
   components: {
     iconedButton: button,
     category,
@@ -50,17 +53,23 @@ export default {
       createCategoryAction: "categories/create",
       fetchCategoryAction: "categories/fetch",
       addEmpty: "categories/addEmpty",
+      updateCategoryAction: "categories/update",
       createSkillAction: "skills/add",
       removeSkillAction: "skills/remove",
       editSkillAction: "skills/edit",
     }),
     async createCategory(categoryTitle) {
+      console.log("createCategory: ", this.category, categoryTitle);
       try {
         await this.createCategoryAction(categoryTitle);
         this.emptyCatIsShown = false;
       } catch (error) {
         console.log(error.message);
       }
+    },
+    updateCategory(payload) {
+      console.log("updateCategory", payload);
+      this.updateCategoryAction(payload);
     },
     addHandler() {
       // this.emptyCatIsShown = true;

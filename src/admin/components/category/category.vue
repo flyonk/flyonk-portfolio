@@ -4,6 +4,7 @@
       slot="title"
       v-model="categoryTitle"
       :editModeByDefault="editMode"
+      :errorMessage="validation.firstError('categoryTitle')"
       @remove="removeHandler"
       @approve="approveHandler"
     />
@@ -30,9 +31,16 @@ import editLine from "../editLine";
 import skill from "../skill";
 import skillAddLine from "../skillAddLine";
 import { mapActions } from "vuex";
+import { Validator, mixin as ValidatorMixin } from "simple-vue-validator";
 
 const skills = [];
 export default {
+  mixins: [ValidatorMixin],
+  validators: {
+    categoryTitle: (value) => {
+      return Validator.value(value).required("Не может быть пустым");
+    },
+  },
   components: {
     card,
     editLine,
@@ -68,9 +76,11 @@ export default {
       createSkill: "skills/create",
     }),
     removeHandler() {
-      this.remove(this.category.id);
+      this.remove(this.category);
     },
-    approveHandler() {
+    async approveHandler() {
+      if (!(await this.$validate())) return;
+
       if (this.category.id) {
         this.update(this.category);
       } else {

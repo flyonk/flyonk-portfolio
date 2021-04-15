@@ -21,15 +21,3 @@ export const defaultView = () => ({
 defaultView.story = {
   name: "Стандартный вид",
 };
-
-export const noTitleView = () => ({
-  components: { iconedBtn },
-  template: `
-    <iconed-btn type="iconed-notitle" @click="onClick" title="" />
-  `,
-  methods,
-});
-
-noTitleView.story = {
-  name: "Без заголовка",
-};
