@@ -51,7 +51,7 @@ export default {
     empty: Boolean,
     category: {
       type: Object,
-      default: () => {},
+      default: () => ({}),
     },
     // title: {
     //   type: String,

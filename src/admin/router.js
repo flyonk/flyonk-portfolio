@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "./store";
-import axios from 'axios'
+import axios from "axios";
 import SimpleVueValidator from "simple-vue-validator";
 
 Vue.use(VueRouter);
@@ -35,33 +35,35 @@ const routes = [
   },
 ];
 
+const router = new VueRouter({ routes });
+
 const guard = axios.create({
   baseURL: "https://webdev-api.loftschool.com/",
 });
 
 router.beforeEach(async (to, from, next) => {
-  const isPublicRoute = to.matched.some((route) => route.meta.public);
-  const isUserLoggedIn = store.getters["user/userIsLoggedIn"];
+  // const isPublicRoute = to.matched.some((route) => route.meta.public);
+  // const isUserLoggedIn = store.getters["user/userIsLoggedIn"];
 
-  // next();
-  // return;
+  next();
+  // // return;
 
-  if (isPublicRoute === false && isUserLoggedIn === false) {
-    const token = localStorage.getItem("token");
+  // if (isPublicRoute === false && isUserLoggedIn === false) {
+  //   const token = localStorage.getItem("token");
 
-    guard.defaults.headers["Authorization"] = `Bearer ${token}`;
+  //   guard.defaults.headers["Authorization"] = `Bearer ${token}`;
 
-    try {
-      const response = await guard.get("/user");
-      store.dispatch("user/login", await response.data.user);
-      next();
-    } catch (error) {
-      router.replace("/login");
-      localStorage.removeItem("token");
-    }
-  } else {
-    next();
-  }
+  //   try {
+  //     const response = await guard.get("/user");
+  //     store.dispatch("user/login", await response.data.user);
+  //     next();
+  //   } catch (error) {
+  //     router.replace("/login");
+  //     localStorage.removeItem("token");
+  //   }
+  // } else {
+  //   next();
+  // }
 });
 
-export default new VueRouter({ routes });
+export default router;

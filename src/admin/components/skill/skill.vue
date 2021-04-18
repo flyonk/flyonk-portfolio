@@ -29,8 +29,6 @@ export default {
   props: {
     skill: {
       type: Object,
-      default: () => {},
-      required: true,
     },
   },
   data() {

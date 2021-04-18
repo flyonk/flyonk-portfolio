@@ -25,7 +25,7 @@ export default {
       links,
     };
   },
-  methods() {},
+  methods: {},
 };
 </script>
 
